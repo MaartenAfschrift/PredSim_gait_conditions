@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\mat950\Documents\Software\Sim\PredInt\src\PredSim\opensimAD\buildExternalFunction\foo_jac.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\mat950\Documents\Software\Sim\PredInt\src\PredSim\opensimAD\buildExternalFunction\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{01E5922F-D919-3705-BDB0-438E38AF7266}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

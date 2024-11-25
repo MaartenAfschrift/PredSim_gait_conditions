@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\mat950\Documents\Software\Sim\PredInt\src\PredSim\Subjects\Fall22_moon\F_Fall22_moon.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\mat950\Documents\Software\Sim\PredInt\src\PredSim\opensimAD\buildExpressionGraph\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4A90E606-3512-3222-8A2C-3C865643A96B}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

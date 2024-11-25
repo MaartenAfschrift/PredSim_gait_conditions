@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\mat950\Documents\Software\Sim\PredictSimpleIntervention\Software\PredSim\Subjects\Falisse2022_25mTorso_15pIncline\F_Falisse2022_25mTorso_15pIncline.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\mat950\Documents\Software\Sim\PredictSimpleIntervention\Software\PredSim\opensimAD\buildExpressionGraph\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{602C24B3-08B2-3C60-A889-6432980650C0}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
