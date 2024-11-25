@@ -7,8 +7,8 @@
 
 clear all; close all; clc;
 pathRepo = 'C:\Users\mat950\Documents\Software\Publications\PredSim_gait_conditions\PredSim';
-PathCpp2Dll_Exe = fullfile(pathRepo,'Osim2DLL');
-compiler = 'Visual Studio 15 2017 Win64';
+PathCpp2Dll_Exe = fullfile(pathRepo,'Osim2DLL','Cpp2Dll_Bin');
+compiler = 'Visual Studio 17 2022';
 
 %% add mass to models
 
@@ -133,7 +133,7 @@ for s= 1:length(Addedmass)
     CppDir = fullfile(pathRepo,'Subjects',S.subject.name);
     outputFilename = S.subject.name;   
     
-    verbose = 0;
+    verbose = 1;
     cpp2dll(CppDir,outputFilename,[],compiler,PathCpp2Dll_Exe,verbose);
     else
         disp([dllfile ' already converted'])

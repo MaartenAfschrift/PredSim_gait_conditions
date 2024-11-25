@@ -13,7 +13,7 @@ Settings.vAbe2015_lim = 4; % limit to walking conditions, or keep everything ?
 % path information other software
 MainDPath = 'C:\Users\mat950\Documents\Software\Publications\PredSim_gait_conditions\SimResults';
 ExpData = 'C:\Users\mat950\Documents\Software\Publications\PredSim_gait_conditions\ExperimentalData';
-addpath(genpath('C:\Users\Maarten\Documents\Software\DataAnalysis\NeuromechanicsToolkit'));
+addpath(genpath('C:\Users\mat950\Documents\Software\Publications\PredSim_gait_conditions\NeuromechanicsToolkit'));
 addpath(genpath('C:\Users\mat950\Documents\Software\Publications\PredSim_gait_conditions\PredSim'));
 
 % path all simulation and experiments
@@ -55,19 +55,13 @@ prop_leg_length = 0.55;
 Mass = [71.6, 74.16, 74.88, 71.1, 70, 73.5, 69.6, 58.9, 73.1];
 Height = [1.78, 1.82, 1.78, 0.99/prop_leg_length, 1.73, 1.76, 1.70, 1.70, 1.77];
 LegLength = Height.*prop_leg_length;
-%
-% Exp_SubjProp_dat = [71.6, 1.78,
-%     74.16, 1.82;
-%     74.88, 1.78;
-%     71.1, 0.99/prop_leg_length;
-%     70, 173;
-%     73.5, 1.76
-%     69.6, 1.70
-%     58.9, 1.70];
+
+
 Mass_Sim = 62;
 Height_Sim = 1.70;
 LegLength_Sim = Height_Sim.*prop_leg_length;
-Exp_SubjProp = table(Studyname',Mass',Height',LegLength','VariableNames',{'Study','mass','height','LegLength'});
+Exp_SubjProp = table(Studyname',Mass',Height',LegLength','VariableNames',...
+    {'Study','mass','height','LegLength'});
 
 
 %% create data table

@@ -7,8 +7,8 @@
 
 clear all; close all; clc;
 pathRepo = 'C:\Users\mat950\Documents\Software\Publications\PredSim_gait_conditions\PredSim';
-PathCpp2Dll_Exe = fullfile(pathRepo,'Osim2DLL');
-compiler = 'Visual Studio 15 2017 Win64';
+PathCpp2Dll_Exe = fullfile(pathRepo,'Osim2DLL','Cpp2Dll_Bin');
+compiler = 'Visual Studio 17 2022';
 
 
 %% add mass to models

@@ -4,12 +4,13 @@ SetFigureDefaults();
 Cs = [0.4 0.4 0.4];
 
 % simulation resutls
-addpath(genpath('C:\Users\mat950\Documents\Software\DataAnalysis\NeuromechanicsToolkit'));
-addpath(genpath('C:\Users\mat950\Documents\Software\Sim\PredInt\src\PredSim'));
-MainDPath = 'C:\Users\mat950\OneDrive - Vrije Universiteit Amsterdam\Onderzoek\SimResults';
-ResPath= fullfile(MainDPath,'PredSimResults');
+addpath(genpath('C:\Users\mat950\Documents\Software\Publications\PredSim_gait_conditions\NeuromechanicsToolkit'));
+addpath(genpath('C:\Users\mat950\Documents\Software\Publications\PredSim_gait_conditions\PredSim'));
+MainDPath = 'C:\Users\mat950\Documents\Software\Publications\PredSim_gait_conditions\SimResults';
 
-Res = load(fullfile(ResPath,'Fal22Ref_10_v2','Falisse_et_al_2022_job296.mat'));
+% load simulation results to get model properties (I know a bit weird to
+% do but this is more convenient for me)
+Res = load(fullfile(MainDPath,'Fal22Ref_13','Falisse_et_al_2022_job25.mat'));
 
 % get some model information
 pctst = struct_array_to_double_array(Res.model_info.muscle_info.parameters,'slow_twitch_fiber_ratio');

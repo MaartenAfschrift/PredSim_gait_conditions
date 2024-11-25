@@ -11,8 +11,8 @@ clear all; close all; clc;
 
 % pathRepo = 'C:\Users\Maarten\Documents\Software\Sim\PredictSimpleIntervention\PredSim';
 pathRepo = 'C:\Users\mat950\Documents\Software\Publications\PredSim_gait_conditions\PredSim';
-CreateDllExePath = fullfile(pathRepo,'Osim2DLL');
-Compiler = 'Visual Studio 15 2017 Win64';
+CreateDllExePath = fullfile(pathRepo,'Osim2DLL','Cpp2Dll_Bin');
+Compiler = 'Visual Studio 17 2022';
 
 % original model
 DefaultModelname = 'Falisse_et_al_2022';

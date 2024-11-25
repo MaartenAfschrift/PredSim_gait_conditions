@@ -1,0 +1,19 @@
+# Add any directories, files, or patterns you don't want to be tracked by version control
+
+*.asv
+*.sto
+*.log
+*.png
+!/Documentation/FiguresForDocumentation/*.png
+*.jpg
+*.eps
+
+PredSim/Debug/*
+PredSim/opensimAD/*
+PredSim/Examples/ExampleResults
+PredSim/App
+PredSim/Subjects/*
+!Subjects/README.md
+!Subjects/Falisse_et_al_2022/
+PredSim/App/SimResults
+!PredSim/App/SimResults/Fal22Ref_13*

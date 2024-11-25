@@ -1,7 +1,9 @@
 % Detail berekening mechanische arbeid spiervezels in verschillende
 % simulaties
 
-datapath = 'C:\Users\mat950\OneDrive - Vrije Universiteit Amsterdam\Onderzoek\SimResults\PredSimResults';
+datapath = 'C:\Users\mat950\Documents\Software\Publications\PredSim_gait_conditions\SimResults';
+
+% adapat the datafiles
 
 % Default model falisse
 Fal13 = load(fullfile(datapath,'Fal22Ref_13','Falisse_et_al_2022_job25.mat'));
