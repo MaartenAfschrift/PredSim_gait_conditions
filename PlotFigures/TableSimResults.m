@@ -4,32 +4,26 @@
 
 clear all; clc;
 
-Settings.CreateDataTable = false;
-Settings.PlotFiguresPaper = true;
-Settings.PlotFiguresExplore = true;
-Settings.DeltaValues = true;
-Settings.vAbe2015_lim = 4; % limit to walking conditions, or keep everything ?
+Settings.CreateDataTable = true; % add sim and exps to large data table
+Settings.PlotFiguresPaper = true; % figures from paper
+Settings.PlotFiguresExplore = true; % exploratory analysis
+Settings.DeltaValues = true; % plot deviations w.r.t. walking at 1.1 m/s
+Settings.vAbe2015_lim = 99; % limit to gait to below velocity treshold [m/s] ? (we decided not to do this)
 
-% path information other software
-MainDPath = 'C:\Users\mat950\Documents\Software\Publications\PredSim_gait_conditions\SimResults';
-ExpData = 'C:\Users\mat950\Documents\Software\Publications\PredSim_gait_conditions\ExperimentalData';
-addpath(genpath('C:\Users\mat950\Documents\Software\Publications\PredSim_gait_conditions\NeuromechanicsToolkit'));
-addpath(genpath('C:\Users\mat950\Documents\Software\Publications\PredSim_gait_conditions\PredSim'));
-
-% path all simulation and experiments
+% path information other software and datapath
+MainPath = 'C:\Users\mat950\Documents\Software\Publications\PredSim_gait_conditions';
+MainDPath = 'C:\Users\mat950\Documents\Data\SimResults_Afschrift2025';
+%MainDPath = fullfile(MainPath, 'SimResults'); % point to your own simulations or downoad data (see README)
+ExpData = fullfile(MainPath, 'ExperimentalData');
+addpath(genpath(fullfile(MainPath,'NeuromechanicsToolkit')));
+addpath(genpath(fullfile(MainPath,'PredSim')));
 
 % relative paths simulation results
 RespathBrowning = fullfile(MainDPath,'Browning');
 ResPathSchertzer  = fullfile(MainDPath,'Schertzer');
 ResPathRef = fullfile(MainDPath,'PredSimResults');
 ResPathHuang = fullfile(MainDPath,'Huang2014');
-ResPathSchertzer_wObj1 = fullfile(MainDPath,'Schertzer__wMetab60pc'); % 60% weight on metabolic cost
-ResPathSchertzer_wObj2 = fullfile(MainDPath,'Schertzer__wqdd30pc'); % 60% weight on metabolic cost
-ResPathSchertzer_QR = fullfile(MainDPath,'Schertzer_QR'); % quasi random initial guess
-ResPathSchertzer_QRm72 = fullfile(MainDPath,'Schertzer_QR_m72'); % quasi random initial guessm model mass 72 kg
-ResPathSchertzer_QRm82 = fullfile(MainDPath,'Schertzer_QR_m82'); % quasi random initial guessm model mass 82 kg
 ResPathGom = fullfile(MainDPath,'PredGom2013');
-ResPathGom_wObj1 = fullfile(MainDPath,'PredGom2013_wMetab60pc');
 ResPathKoel = fullfile(MainDPath,'Koelewijn');
 ResPathMcDonald = fullfile(MainDPath,'PredSimResults');
 RespathUmberger = fullfile(MainDPath,'PredSimResults');
@@ -104,13 +98,16 @@ if Settings.CreateDataTable
     SpeedNamesRef = {'11','14','17'};
 
     % multiple simulations models
-    ModelSettings = {ResPathSchertzer,ResPathSchertzer_wObj1,ResPathSchertzer_wObj2,...
-        ResPathSchertzer_QR,ResPathSchertzer_QRm72,ResPathSchertzer_QRm82};
-    ModelSettings_label = {'Schertzer','Schertzer_wMetab','Schertzer_wqdd','Schertzer_qr',...
-        'Schertzer_qrm72','Schertzer_qrm82'};
+    % ModelSettings = {ResPathSchertzer,ResPathSchertzer_wObj1,ResPathSchertzer_wObj2,...
+    %     ResPathSchertzer_QR,ResPathSchertzer_QRm72,ResPathSchertzer_QRm82};
+    % ModelSettings_label = {'Schertzer','Schertzer_wMetab','Schertzer_wqdd','Schertzer_qr',...
+    %     'Schertzer_qrm72','Schertzer_qrm82'};
+    ModelSettings = {ResPathSchertzer};
+    ModelSettings_label = {'Schertzer'};
 
     % specific names for walking speed conditions without added mass
-    PostFixRef = {'','_metab','_qdd30pc','_QR','_m72','_m82'};
+    PostFixRef = {''};
+    %PostFixRef = {'','_metab','_qdd30pc','_QR','_m72','_m82'};
 
 
     % load experimental data
@@ -245,8 +242,10 @@ if Settings.CreateDataTable
     addedmass = [0 0 0 0.25 0.25 0.25].*mRefModel;
     SpeedNames = {'20kmh','30kmh','40kmh','50kmh','60kmh'};
     WalkSpeed = 2:1:6;
-    ModelSettings = {ResPathGom, ResPathGom_wObj1};
-    ModelSettings_label = {'Gomenuka','Gomenuka_wMetab'};
+    % ModelSettings = {ResPathGom, ResPathGom_wObj1};
+    % ModelSettings_label = {'Gomenuka','Gomenuka_wMetab'};
+    ModelSettings = {ResPathGom};
+    ModelSettings_label = {'Gomenuka'};
 
     % load experimental data
     Dat = importdata(ExpDataFileGom);

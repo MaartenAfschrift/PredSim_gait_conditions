@@ -6,9 +6,10 @@
 % convert the cpp to dll
 
 clear all; close all; clc;
-pathRepo = 'C:\Users\mat950\Documents\Software\Publications\PredSim_gait_conditions\PredSim';
+pathRepo = ['C:\Users\mat950\Documents\Software\Publications\',...
+    'PredSim_gait_conditions\PredSim'];
 PathCpp2Dll_Exe = fullfile(pathRepo,'Osim2DLL');
-compiler = 'Visual Studio 15 2017 Win64';
+compiler = 'Visual Studio 17 2022';
 BuildCPP = true;
 BuildDll = true;
 
@@ -17,7 +18,8 @@ BuildDll = true;
 S.misc.main_path = pathRepo;
 %% Original model settings
 S.subject.name_Or1 = 'Falisse_et_al_2022';
-S.osim_path_Or1 = fullfile(pathRepo,'Subjects',S.subject.name_Or1,[S.subject.name_Or1 '.osim']);
+S.osim_path_Or1 = fullfile(pathRepo,'Subjects',...
+    S.subject.name_Or1,[S.subject.name_Or1 '.osim']);
 
 %% New folder
 
@@ -69,7 +71,7 @@ for s= 1:length(ListFolders)
     end
 end
 
-%% adapt gravivty vector for slope
+%% test adapt gravivty vector for slope
 
 
 grav = [0 -9.80664999999999942304 0 0];

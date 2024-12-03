@@ -2,12 +2,15 @@
 %-------------------------
 
 
-% path informationMainDPath = 'C:\Users\mat950\Documents\Software\Publications\PredSim_gait_conditions\SimResults';
-addpath(genpath('C:\Users\Maarten\Documents\Software\DataAnalysis\NeuromechanicsToolkit'));
-addpath(genpath('C:\Users\mat950\Documents\Software\Publications\PredSim_gait_conditions\PredSim'));
-ResPathMcDonald  = 'C:\Users\mat950\Documents\Software\Publications\PredSim_gait_conditions\SimResults';
-ExpData = 'C:\Users\mat950\Documents\Software\Publications\PredSim_gait_conditions\ExperimentalData';
+% path information
+
+% path information other software and datapath
+MainPath = 'C:\Users\mat950\Documents\Software\Publications\PredSim_gait_conditions';
+ResPathMcDonald = 'C:\Users\mat950\Documents\Data\SimResults_Afschrift2025\PredSimResults\';
+ExpData = fullfile(MainPath, 'ExperimentalData');
 dExpMcDonald = fullfile(ExpData,'McDonald\EnergyCost_FatigueAvoidance_MasterData.mat');
+addpath(genpath(fullfile(MainPath,'NeuromechanicsToolkit')));
+addpath(genpath(fullfile(MainPath,'PredSim')));
 
 %% read data
 
@@ -19,7 +22,8 @@ SimInfo =cell(1000,3); % model label, location added mass
 ctTable = 1;
 Header_Sim = {'COT','StrideFreq','StepWidth','speed','PNetMetab','BodyMass','Slope',...
     'PNetMetab_BM','AddedMass','COT_marg','PNetMetab_Marg_BM','COT_b','PNetMetab_b','PNetMetab_b_BM',...
-    'act1','act2','act3','act4','act5','act6','act7','act1sq','act2sq','act3sq','act4sq','act5sq','act6sq','act7sq','Avgact-Mass','Avgact_sq-Mass'};
+    'act1','act2','act3','act4','act5','act6','act7','act1sq','act2sq','act3sq','act4sq','act5sq',...
+    'act6sq','act7sq','Avgact-Mass','Avgact_sq-Mass'};
 Header_Exp = {'Exp_PNetMetab_BM','Exp_COT','Exp_StrideFreq','Exp_StepWidth','Exp_CAct'};
 Headers = [Header_Sim, Header_Exp];
 

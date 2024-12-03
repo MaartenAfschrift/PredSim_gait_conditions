@@ -4,9 +4,10 @@ SetFigureDefaults();
 Cs = [0.4 0.4 0.4];
 
 % simulation resutls
-addpath(genpath('C:\Users\mat950\Documents\Software\Publications\PredSim_gait_conditions\NeuromechanicsToolkit'));
-addpath(genpath('C:\Users\mat950\Documents\Software\Publications\PredSim_gait_conditions\PredSim'));
-MainDPath = 'C:\Users\mat950\Documents\Software\Publications\PredSim_gait_conditions\SimResults';
+mainpath = 'C:\Users\mat950\Documents\Software\Publications\PredSim_gait_conditions';
+addpath(genpath(fullfile(mainpath, 'NeuromechanicsToolkit')));
+addpath(genpath(fullfile(mainpath, 'PredSim')));
+MainDPath = fullfile(mainpath, 'SimResults');
 
 % load simulation results to get model properties (I know a bit weird to
 % do but this is more convenient for me)

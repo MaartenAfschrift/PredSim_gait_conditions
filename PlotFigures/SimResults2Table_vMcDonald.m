@@ -31,7 +31,7 @@ else
     Res = [];
 end
 
-output = nan(1,14+7);
+output = nan(1,30);
 if ~isempty(Res)
     % extract all outputs
     output(1) = Res.R.metabolics.Bhargava2004.COT;

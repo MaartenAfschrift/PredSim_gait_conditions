@@ -1,9 +1,11 @@
 %% Detailed compared kinematics and kinetics various walking speeds
 %--------------------------------------------------------------------
 
+clear all; close all; clc;
+
 % files exported iwht Kinematics_Kinetics_VanDerZee on ubuntu laptop
-MainDPath = 'C:\Users\mat950\OneDrive - Vrije Universiteit Amsterdam\Onderzoek\SimResults';
-dPathExp = fullfile(MainDPath,'literatureSimpleInt\ExtractData\VanDerZee');
+MainDPath = 'C:\Users\mat950\Documents\Data\SimResults_Afschrift2025';
+dPathExp = fullfile(MainDPath,'VanDerZeeExp');
 
 % load experimental dat
 WalkSpeed = [0.7 0.9 1.1 1.4 1.6 1.8 2 ];
@@ -16,7 +18,21 @@ for i=1:length(WalkSpeed)
     Dat(i).GRF = readtable(GRFfile);
 end
 
+% speed names for legend
+for i= 1:length(WalkSpeed)
+    WalkSpeed_legend{i} = [num2str(WalkSpeed(i)) 'ms^{-1}'];
+end
+
 PlotFalisse = true;
+
+Colors_Speeds = [146,133,101;...
+    126,108,62;...
+    238,202,102;...
+    238,202,102;...
+    238,202,102;...
+    125,162,197;...
+    125,162,197]./255;
+Colors_Speeds = flipud(Colors_Speeds);
 
 %% Load simulation results
 if PlotFalisse
@@ -33,7 +49,8 @@ end
 
 %% Plot figure
 SetFigureDefaults
-ColorExp = copper(length(WalkSpeed));
+% ColorExp = copper(length(WalkSpeed));
+ColorExp  = Colors_Speeds;
 ColNames = {'ankle_angle_r','knee_angle_r','hip_flexion_r'};
 nr = 3;
 nc = 6;
@@ -65,8 +82,6 @@ for i =1:length(WalkSpeed)
         subplot(nr,nc,j+nc+3)
         plot(dsel,'Color',ColorExp(i,:)); hold on;
 
-
-
     end
 
 
@@ -89,11 +104,12 @@ for i =1:length(WalkSpeed)
     plot(dsel,'Color',ColorExp(i,:)); hold on;
     subplot(nr,nc,nc*2+6)
     dsel = Dat(i).Sim.R.ground_reaction.GRF_r(:,3)./Dat(i).Sim.model_info.mass;
-    plot(dsel,'Color',ColorExp(i,:)); hold on;
-
-
+    l(i) = plot(dsel,'Color',ColorExp(i,:)); hold on;
 end
 
+legend(l,WalkSpeed_legend,'Interpreter','tex');
+legend boxoff;
+clear l;
 
 for i =1:nc*nr
     subplot(nr,nc,i)
@@ -104,7 +120,6 @@ end
 %% Plot separate figures for kinematics, kinetics and GRF
 ColNamesHeader = {'ankle','knee','Hip'};
 figure('Name','kinematics');
-ColorExp = sky(length(WalkSpeed)+2);
 for i =1:length(WalkSpeed)
     for j = 1:length(ColNames)
         % experimental kinematics
@@ -113,14 +128,18 @@ for i =1:length(WalkSpeed)
         if strcmp(ColNames{j},'knee_angle_r')
             dsel = -dsel;
         end
-        plot(dsel*180/pi,'Color',ColorExp(i+1,:)); hold on;
+        plot(dsel*180/pi,'Color',ColorExp(i,:)); hold on;
         title(ColNamesHeader{j})
         % simulated kinematics
         dsel = Dat(i).Sim.R.kinematics.Qs(:,strcmp(ColNames{j},Dat(1).Sim.R.colheaders.coordinates));
         subplot(2,3,j+3)
-        plot(dsel,'Color',ColorExp(i+1,:)); hold on;
+        l(i)=plot(dsel,'Color',ColorExp(i,:)); hold on;
     end
 end
+legend(l,WalkSpeed_legend,'Interpreter','tex');
+legend boxoff;
+clear l;
+
 for i =1:6
     subplot(2,3,i)
     set(gca,'box','off');
@@ -146,8 +165,6 @@ for i =1:6
 end
 
 figure('Name','kinetics');
-ColorExp = sky(length(WalkSpeed)+2);
-% ColorExp = linspecer(length(WalkSpeed)+2);
 
 for i =1:length(WalkSpeed)
     for j = 1:length(ColNames)
@@ -158,14 +175,17 @@ for i =1:length(WalkSpeed)
             dsel = -dsel;
         end
         plot(dsel,'Color',ColorExp(i,:)); hold on;
-        plot(dsel,'Color',ColorExp(i+1,:)); hold on;
+        plot(dsel,'Color',ColorExp(i,:)); hold on;
         title(ColNamesHeader{j})
         % simulated kinematics
         subplot(2,3,j+3)
         dsel = Dat(i).Sim.R.kinetics.T_ID(:,strcmp(ColNames{j},Dat(1).Sim.R.colheaders.coordinates));
-        plot(dsel./Dat(i).Sim.model_info.mass,'Color',ColorExp(i,:)); hold on;
+        l(i) = plot(dsel./Dat(i).Sim.model_info.mass,'Color',ColorExp(i,:)); hold on;
     end
 end
+legend(l,WalkSpeed_legend,'Interpreter','tex');
+legend boxoff;
+clear l;
 for i =1:6
     subplot(2,3,i)
     set(gca,'box','off');
@@ -196,13 +216,13 @@ nr =2; nc=3;
 for i =1:length(WalkSpeed)
     subplot(nr,nc,1)
     dsel = Dat(i).GRF.Flx;
-    plot(dsel,'Color',ColorExp(i,:)); hold on;
+    plot(-dsel,'Color',ColorExp(i,:)); hold on;
     subplot(nr,nc,2)
     dsel = Dat(i).GRF.Fly;
     plot(dsel,'Color',ColorExp(i,:)); hold on;
     subplot(nr,nc,3)
     dsel = Dat(i).GRF.Flz;
-    plot(dsel,'Color',ColorExp(i,:)); hold on;
+    plot(-dsel,'Color',ColorExp(i,:)); hold on;
 
 
     subplot(nr,nc,4)
@@ -213,8 +233,11 @@ for i =1:length(WalkSpeed)
     plot(dsel,'Color',ColorExp(i,:)); hold on;
     subplot(nr,nc,6)
     dsel = Dat(i).Sim.R.ground_reaction.GRF_r(:,3)./Dat(i).Sim.model_info.mass;
-    plot(dsel,'Color',ColorExp(i,:)); hold on;
+    l(i) = plot(dsel,'Color',ColorExp(i,:)); hold on;
 end
+legend(l,WalkSpeed_legend,'Interpreter','tex')
+legend boxoff;
+clear l;
 for i =1:6
     subplot(2,3,i)
     set(gca,'box','off');
@@ -229,7 +252,7 @@ for i =1:6
         ylabel({'Simulation','ground reactin force [N/kg]'});
     end
     if i == 1 || i == 4
-        set(gca,'YLim',[-5 6]);
+        set(gca,'YLim',[-6.1 6.1]);
     end
     if i == 2 || i ==5
         set(gca,'YLim',[0 15]);
