@@ -1,0 +1,3 @@
+[submodule "NeuromechanicsToolkit"]
+	path = NeuromechanicsToolkit
+	url = https://github.com/KULeuvenNeuromechanics/NeuromechanicsToolkit

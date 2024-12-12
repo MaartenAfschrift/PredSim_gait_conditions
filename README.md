@@ -24,6 +24,8 @@ Installation
 
 3. Install compiler code to create .dll files from osim models. Do this in matlab by running the script: ./PredSim/InstallOsim2Dll. This software is based on [GitHub - antoinefalisse/opensimAD: Libraries for OpenSimAD - OpenSim with support for Algorithmic Differentiation.](https://github.com/antoinefalisse/opensimAD)
 
+4. Add Neuromechanics toolkit as a submodule *git submodule init*
+
 ## replicate simulations
 
 **1. convert .osim models for specific studies**
