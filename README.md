@@ -50,12 +50,6 @@ I you want to detailed comparison with the dataset of van der Zee 2022 with vari
 
 ### download simulation results and processed experimental data
 
-If you don't want to convert all osim models to .dll files, rerun all simulations and process data with addbiomechanics (but just want to play with the sim results) you can download these things here:
-
-- Subjects [200 MB]:
-
-- SimResuts [3GB]:
-
-- AddBiomech [x MB]:
+If you don't want to convert all osim models to .dll files, rerun all simulations and process data with addbiomechanics (but just want to play with the sim results) you can download data from zenodo: https://doi.org/10.5281/zenodo.14524619
 
 Make sure that you point in your matlab code to these folder where needed (and add the subjects folder to ./PredSim/Subjects) if you to recreate my figures using my code.
