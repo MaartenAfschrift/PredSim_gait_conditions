@@ -6,7 +6,12 @@
 % convert the cpp to dll
 
 clear all; close all; clc;
-pathRepo = 'C:\Users\mat950\Documents\Software\Publications\PredSim_gait_conditions\PredSim';
+
+currentfilename = mfilename('fullpath');
+currentfolder = fileparts(currentfilename);
+pathRepo = currentfolder(1:end-18);
+
+
 PathCpp2Dll_Exe = fullfile(pathRepo,'Osim2DLL','Cpp2Dll_Bin');
 compiler = 'Visual Studio 17 2022';
 

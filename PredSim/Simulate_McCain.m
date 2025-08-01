@@ -34,12 +34,12 @@ S.solver.run_as_batch_job = 1;
 % % S.bounds
 S.bounds.a.lower            = 0.01;
 S.misc.gaitmotion_type      = 'FullGaitCycle';
-S.solver.CasADi_path        = 'C:\Users\Maarten\Documents\Software\downloads\casadi_355';
+S.solver.CasADi_path        = get_casadi_path();
 S.subject.mtp_type          = '2022paper';
 S.subject.set_damping_coefficient_selected_dofs = {{'mtp_angle_l','mtp_angle_r'},2};
 
 % %S.Cpp2Dll: required inputs to convert .osim to .dll
-S.Cpp2Dll.PathCpp2Dll_Exe = InstallOsim2Dll_Exe('C:\Osim2Dll_exe');
+S.Cpp2Dll.PathCpp2Dll_Exe = fullfile(pathRepo,'Osim2DLL');
 S.Cpp2Dll.compiler = 'Visual Studio 15 2017 Win64';
 
 
@@ -90,7 +90,7 @@ for i= 1:length(kVect)
 
     S.subject.name = 'Falisse_et_al_2022';
     osim_path = fullfile(pathRepo,'Subjects',S.subject.name,[S.subject.name '.osim']);
-    S.subject.save_folder  = fullfile(pathRepoFolder,'PredSimResults',['MCainAnkleKnee' kSel_str]);
+    S.subject.save_folder  = fullfile(pathRepoFolder,'SimResults',PredSimResults',['MCainAnkleKnee' kSel_str]);
     add_pred_sim_to_batch(S,osim_path)
 
 end

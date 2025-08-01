@@ -32,13 +32,14 @@ S.solver.run_as_batch_job = 1;
 
 % % S.bounds
 S.bounds.a.lower            = 0.01;
-S.solver.CasADi_path        = 'C:\Users\mat950\Documents\Software\Download\casadi_3_6_7';
+S.solver.CasADi_path        = get_casadi_path();
 S.subject.mtp_type          = '2022paper';
 S.subject.set_stiffness_coefficient_selected_dofs = {{'mtp_angle_l','mtp_angle_r'},25};
 S.subject.set_damping_coefficient_selected_dofs = {{'mtp_angle_l','mtp_angle_r'},2};
 
 % %S.Cpp2Dll: required inputs to convert .osim to .dll
-S.Cpp2Dll.PathCpp2Dll_Exe = InstallOsim2Dll_Exe(fullfile(pathRepo,'Osim2DLL'));
+S.Cpp2Dll.PathCpp2Dll_Exe = fullfile(pathRepo,'Osim2DLL');
+
 %S.Cpp2Dll.compiler = 'Visual Studio 15 2017 Win64';
 S.Cpp2Dll.compiler ='Visual Studio 17 2022';
 

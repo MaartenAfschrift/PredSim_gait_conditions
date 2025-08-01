@@ -1,7 +1,10 @@
 %% Build osim model with added mass
 %-----------------------------------
 
-pathRepo = 'C:\Users\mat950\Documents\Software\Publications\PredSim_gait_conditions\PredSim';
+
+currentfilename = mfilename('fullpath');
+currentfolder = fileparts(currentfilename);
+pathRepo = currentfolder(1:end-18);
 
 modelpath = fullfile(pathRepo,'Subjects','Falisse_et_al_2022');
 modelname = 'Falisse_et_al_2022.osim';
