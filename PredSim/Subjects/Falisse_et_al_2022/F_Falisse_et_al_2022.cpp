@@ -700,7 +700,9 @@ int F_generic(const T** arg, T** res) {
 	appliedBodyForces.setToZero();
 	/// Set gravity.
 	Vec3 gravity(0);
+	gravity[0] = 0.00000000000000000000;
 	gravity[1] = -9.80664999999999942304;
+	gravity[2] = 0.00000000000000000000;
 	/// Add weights to appliedBodyForces.
 	for (int i = 0; i < model->getBodySet().getSize(); ++i) {
 		model->getMatterSubsystem().addInStationForce(*state,

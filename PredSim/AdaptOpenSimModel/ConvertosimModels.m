@@ -12,7 +12,7 @@ currentfolder = fileparts(currentfilename);
 pathRepo = currentfolder(1:end-18);
 
 PathCpp2Dll_Exe = fullfile(pathRepo,'Osim2DLL');
-compiler = 'Visual Studio 15 2017 Win64';
+compiler = 'Visual Studio 17 2022';
 BuildCPP = true;
 BuildDll = true;
 

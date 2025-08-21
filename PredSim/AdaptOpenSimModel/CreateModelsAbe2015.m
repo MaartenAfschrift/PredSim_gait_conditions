@@ -15,11 +15,11 @@ pathRepo = currentfolder(1:end-18);
 
 
 CreateDllExePath = fullfile(pathRepo,'Osim2DLL');
-Compiler = 'Visual Studio 15 2017 Win64';
+Compiler = 'Visual Studio 17 2022';
 
 % original model
 DefaultModelname = 'Falisse_et_al_2022';
-DefaultOsimPath = fullfile(pathRepo,'Subjects','ModelRepo',[DefaultModelname '.osim']);
+DefaultOsimPath = fullfile(pathRepo,'Subjects',DefaultModelname,[DefaultModelname '.osim']);
 
 %% Create models for walking on slopes
 

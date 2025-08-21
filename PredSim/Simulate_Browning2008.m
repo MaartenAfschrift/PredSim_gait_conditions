@@ -24,7 +24,7 @@ S.subject.IG_selection = fullfile(S.misc.main_path,'OCP','IK_Guess_Default.mot')
 S.subject.IG_selection_gaitCyclePercent = 50;
 
 % Do you want to run the simulation as a batch job (parallel computing toolbox)
-S.solver.run_as_batch_job = 1;
+S.solver.run_as_batch_job = 0;
 
 %% Optional inputs
 % see README.md in the main folder for information about these optional
@@ -60,6 +60,10 @@ for s = 1:length(SubjNames)
     OutName = [S.subject.name];
     S.subject.v_pelvis_x_trgt   = 1.25;
     S.subject.save_folder  = fullfile(pathRepoFolder,'SimResults','Browning',OutName);
-    add_pred_sim_to_batch(S,osim_path);
+    if S.solver.run_as_batch_job
+        add_pred_sim_to_batch(S,osim_path);
+    else
+        run_pred_sim(S,osim_path);
+    end
 end
 

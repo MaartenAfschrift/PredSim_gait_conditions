@@ -13,7 +13,7 @@ pathRepo = currentfolder(1:end-18);
 
 
 PathCpp2Dll_Exe = fullfile(pathRepo,'Osim2DLL');
-compiler = 'Visual Studio 15 2017 Win64';
+Compiler = 'Visual Studio 17 2022';
 Cpp2Dll.PathCpp2Dll_Exe = PathCpp2Dll_Exe;
 
 
@@ -160,9 +160,8 @@ for si = 1:length(GenModels)
             % convert cpp
             CppDir = fullfile(pathRepo,'Subjects',S.subject.name);
             outputFilename = S.subject.name;
-            compiler = 'Visual Studio 15 2017 Win64';
             verbose = 1;
-            cpp2dll(CppDir,outputFilename,[],compiler,Cpp2Dll.PathCpp2Dll_Exe,verbose);
+            cpp2dll(CppDir,outputFilename,[],Compiler,Cpp2Dll.PathCpp2Dll_Exe,verbose);
         else
             disp([dllfile ' already converted'])
         end

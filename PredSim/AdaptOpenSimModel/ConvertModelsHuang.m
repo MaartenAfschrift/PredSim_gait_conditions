@@ -26,7 +26,7 @@ SegmentAdded = {'torso',[]};
 COMlocation = {[0 -0.1 0], []}; % 10cm below COM torso, this is about 20cm above pelvis
 mBackPack = 3.8;
 % default model
-GenModel = fullfile(pathRepo,'Subjects','ModelRepo','Falisse_et_al_2022.osim');
+GenModel = fullfile(pathRepo,'Subjects','Falisse_et_al_2022','Falisse_et_al_2022.osim');
 
 % output model
 for i=1:length(Addedmass)
